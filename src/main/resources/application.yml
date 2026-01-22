@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name: org.postgresql.Driver
+app:
+  keycloak:
+    server-url:
+    realm:
+    username:
+    password:
+    grant-type:
+    client-id:
