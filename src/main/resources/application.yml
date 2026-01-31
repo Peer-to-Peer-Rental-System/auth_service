@@ -1,14 +1,14 @@
 spring:
   datasource:
-    url:
-    username:
-    password:
+    url: jdbc:postgresql://localhost:5432/rental_system
+    username: postgres
+    password: postgres
     driver-class-name: org.postgresql.Driver
 app:
   keycloak:
-    server-url:
-    realm:
-    username:
-    password:
-    grant-type:
-    client-id:
+    server-url: "http://localhost:9090"
+    realm: "master"
+    username: "admin"
+    password: "admin"
+    grant-type: "password"
+    client-id: "admin-cli"
