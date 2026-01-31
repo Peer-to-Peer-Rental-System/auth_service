@@ -1,0 +1,8 @@
+CREATE TABLE verification_status (
+    user_id INTEGER PRIMARY KEY,
+    email_verified BOOLEAN NOT NULL DEFAULT FALSE,
+    identity_verified BOOLEAN NOT NULL DEFAULT FALSE,
+    payment_verified BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
