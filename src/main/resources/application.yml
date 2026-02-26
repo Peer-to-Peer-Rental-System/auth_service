@@ -6,9 +6,9 @@ spring:
     driver-class-name: org.postgresql.Driver
 app:
   keycloak:
+    timeout: 1000
     server-url: "http://localhost:9090"
-    realm: "master"
-    username: "admin"
-    password: "admin"
-    grant-type: "password"
-    client-id: "admin-cli"
+    grant-type: "client_credentials"
+    client-id: "auth_service"
+    client-secret: "b3QgYhmy4p23nCFznMBhElwCz5BB6eLe"
+    realm: "P2P-system"

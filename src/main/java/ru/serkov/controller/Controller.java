@@ -2,6 +2,8 @@ package ru.serkov.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +22,18 @@ public class Controller {
     @PostMapping("/register")
     public ResponseEntity<UserAuthResponse> register(@Valid @RequestBody UserAuthRequest userAuthRequest) {
         UserAuthResponse user = keycloakUserService.createUser(userAuthRequest);
+
+        ResponseCookie responseCookieAccess = ResponseCookie.from("access_token", user.getTokenResponseDto().getAccessToken())
+                .httpOnly(true)
+                .secure(true)
+                .path("/")
+                .maxAge(user.getTokenResponseDto().getExpiresIn())
+                .sameSite("Strict")
+                .build();
+
+
         return ResponseEntity
-                .ok().build();
+                .ok()
+                .header(HttpHeaders.SET_COOKIE, responseCookieAccess.toString()).build();
     }
 }

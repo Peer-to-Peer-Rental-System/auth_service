@@ -10,16 +10,16 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 public class KeycloakProperties {
+    private Integer timeout;
+
     private String serverUrl;
-
-    private String realm;
-
-    private String username;
-
-    private String password;
 
     private String grantType;
 
     private String clientId;
+
+    private String clientSecret;
+
+    private String realm;
 
 }

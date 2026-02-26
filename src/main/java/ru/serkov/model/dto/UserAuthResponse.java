@@ -1,9 +1,11 @@
 package ru.serkov.model.dto;
 
 import lombok.Builder;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Builder
 public class UserAuthResponse {
     private Long id;
@@ -11,4 +13,5 @@ public class UserAuthResponse {
     private String email;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private TokenResponseDto tokenResponseDto;
 }
